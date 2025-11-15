@@ -1,7 +1,17 @@
+# company data
 data/
-!data/.gitkeep
-*.parquet
-.ipynb_checkpoints/
+
+# all model artifacts (checkpoints, weights, etc.)
+models/
+
+# just in case any stray weight files appear elsewhere
+*.bin
+*.pt
+*.safetensors
+
+# macOS
+.DS_Store
+
+# Python bytecode
 __pycache__/
 *.pyc
-.DS_Store
