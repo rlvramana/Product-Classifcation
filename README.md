@@ -218,7 +218,7 @@ At this point you have a clean, deduplicated product‑level dataset with a `spl
 
 If you don’t want to fine‑tune BERT yourself, you can load my published model from Hugging Face.
 
-Model repo (private): `rlvramana/fashion-bert-classification`
+Model repo : `rlvramana/fashion-bert-classification`
 
 In any notebook (with `transformers` installed and internet access):
 
