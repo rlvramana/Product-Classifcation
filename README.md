@@ -231,15 +231,34 @@ model_id = "rlvramana/fashion-bert-classification"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForSequenceClassification.from_pretrained(model_id)
 
-def predict_fashion(text: str) -> float:
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=64)
+def predict_fashion(text: str, threshold: float = 0.5) -> None:
+    # Tokenize the input text
+    inputs = tokenizer(
+        text,
+        return_tensors="pt",
+        truncation=True,
+        padding=True,
+        max_length=64
+    )
+
+    # Get model predictions
     with torch.no_grad():
         outputs = model(**inputs)
         probs = outputs.logits.softmax(dim=-1)[0]
-    # probs[1] = probability of class 1 (fashion)
-    return float(probs[1])
 
-print(predict_fashion("women's black leather jacket"))
+    # Probability of class 1 (fashion)
+    fashion_prob = float(probs[1])
+
+    # Decide label based on threshold
+    label = "fashion" if fashion_prob >= threshold else "non-fashion"
+
+    # Print result
+    print(f"Prediction: {label}")
+    print(f"Probability of fashion: {fashion_prob * 100:.2f}%")
+
+sample_text = ("women's black leather jacket")
+    # a tough example where BERT fails but logistic succeeds - 900pcs glass craft beads for bracelet making kit include assorted round bicone seed rock beads and teardrop pendant for jewelry making necklace art designer charms
+predict_fashion(sample_text)
 ```
 
 You can also plug this into the existing notebooks by replacing the local model‑loading code with the model ID above.
