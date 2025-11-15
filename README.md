@@ -257,7 +257,7 @@ def predict_fashion(text: str, threshold: float = 0.5) -> None:
     print(f"Probability of fashion: {fashion_prob * 100:.2f}%")
 
 sample_text = ("women's black leather jacket")
-    # a tough example where BERT fails but logistic succeeds - 900pcs glass craft beads for bracelet making kit include assorted round bicone seed rock beads and teardrop pendant for jewelry making necklace art designer charms
+    # a tough example where BERT fails but logistic succeeds - 900pcs Glass Craft Beads for Bracelet Making Kit, Include Assorted Round/Bicone/Seed/Rock Beads and Teardrop Pendant for Jewelry Making, Necklace, Art, Designer Charms
 predict_fashion(sample_text)
 ```
 
