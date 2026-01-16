@@ -55,7 +55,6 @@ Product-Classification/
 └─ environment-fashion-env.yml
 ```
 
-If some filenames differ slightly in your local copy, follow the same order.
 
 ---
 
